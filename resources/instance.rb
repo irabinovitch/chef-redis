@@ -27,6 +27,8 @@ attribute :activerehashing,:kind_of => [TrueClass, FalseClass], :default => true
 attribute :slaveof,        :kind_of => String, :default => nil
 attribute :slaveof_ip,     :kind_of => String, :default => nil
 attribute :slaveof_port,   :kind_of => Integer, :default => nil
+attribute :maxmemory,      :kind_of => String, :default => nil
+attribute :'maxmemory_policy',   :kind_of => String, :default => 'volatile-lru'
 
 ###
 ## the following configuration settings may only work with a recent redis release
@@ -86,6 +88,8 @@ state_attrs(
  :slowlog_max_len,
 
  :maxmemory_samples,
+ :maxmemory,
+ :maxmemory_policy,
 
  :no_appendfsync_on_rewrite,
 
